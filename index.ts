@@ -4,7 +4,7 @@ export const WEB_AUDIO_BLOCK_SIZE = 128;
  * A custom hop worklet processor that buffers input of size `hopSize` and slowly releases `WEB_AUDIO_BLOCK_SIZE` audio chunks.
  *
  * ```ts
- * class MyCustomHopWorklet extends CustomHopWorklet {
+ * class MyCustomHopWorklet extends CustomHopWorkletProcessor {
  *      public constructor() {
  *          super(512, 1, 2); // 512 samples, 1 input, 2 channels
  *      }
@@ -15,7 +15,7 @@ export const WEB_AUDIO_BLOCK_SIZE = 128;
  * }
  * ```
  */
-export abstract class CustomHopWorklet extends AudioWorkletProcessor {
+export abstract class CustomHopWorkletProcessor extends AudioWorkletProcessor {
   private _hopSize: number;
   private _outputBuffers!: Float32Array[][];
   private _inputBuffers!: Float32Array[][];
